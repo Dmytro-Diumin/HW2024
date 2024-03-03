@@ -1,68 +1,26 @@
-// const categoriesRef = document.querySelector('.categories__list');
-// console.log(categoriesRef);
-// categoriesRef.addEventListener('click', onCategoriesClick);
-
-// async function onCategoriesClick(e) {
-//   e.preventDefault();
-// }
-
-// document
-//   .getElementById('scrollableList')
-//   .addEventListener('click', function (e) {
-//     const selectedCategory = e.target;
-//     if (!selectedCategory.classList.contains('categories__item')) {
-//       return; //якщо клік не на категорії
-//     }
-
-//     const allCategories = Array.from(this.children);
-
-//     // Знімає вибір з усіх категорій
-//     allCategories.forEach(category => {
-//       category.classList.remove('selected');
-//       category.textContent = category.dataset.originalText;
-//     });
-
-//     // Додаємо клас 'selected' до обраної категорії
-//     selectedCategory.classList.add('selected');
-//     selectedCategory.textContent = selectedCategory.textContent.toUpperCase();
-
-//     console.log(selectedCategory);
-//   });
-
-const categoriesRef = document.querySelector('.categories__list');
-
-categoriesRef.addEventListener('click', onCategoriesClick);
-
-async function onCategoriesClick(e) {
-  e.preventDefault();
+import './js/support';
+/*LIBRARIES
+1. Axios
+(docs) - https://www.npmjs.com/package/axios?activeTab=readme
+2.izitoast
+(docs) - https://www.npmjs.com/package/izitoast
+3.tui-pagination
+(docs) - https://www.npmjs.com/package/tui-pagination
+4.Swiper 
+(docs) - https://www.npmjs.com/package/swiper
+*/
+if (localStorage.getItem('theme') === 'dark') {
+  refs.themeCheckbox.checked = true;
+  // Сюди треба навішати класи для темної теми або функцію яка це робитиме
 }
+import { loadHomeBooks } from './js/homeRender';
+loadHomeBooks();
 
-function categoriesSelected() {
-  return new Promise(resolve => {
-    document
-      .getElementById('scrollableList')
-      .addEventListener('click', function (e) {
-        const selectedCategory = e.target;
-        if (!selectedCategory.classList.contains('categories__item')) {
-          return; // якщо клік не на категорії
-        }
+import { categoriesSelected } from './js/categories.js';
+categoriesSelected();
+import { refs } from './js/refs.js';
+import { onAddThemeLocalStorage } from './js/localStorage.js';
+refs.themeCheckbox.addEventListener('change', onAddThemeLocalStorage);
 
-        const allCategories = Array.from(this.children);
-
-        // Знімає вибір з усіх категорій
-        allCategories.forEach(category => {
-          category.classList.remove('selected');
-          category.textContent = category.dataset.originalText;
-        });
-
-        // Додаємо клас 'selected' до обраної категорії
-        selectedCategory.classList.add('selected');
-        selectedCategory.textContent =
-          selectedCategory.textContent.toUpperCase();
-
-        resolve(selectedCategory);
-      });
-  });
-}
-
-categoriesSelected().then(selectedCategory => {});
+// import { onBookClick, bookListRef } from './js/modalWindowFunctions.js';
+// bookListRef.addEventListener('click', onBookClick);

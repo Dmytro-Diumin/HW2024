@@ -54,13 +54,12 @@
     margin: 40px 40px 86px 0;
   }
 }
-.categories__item.selected {
+.selected {
   font-family: DM Sans;
   font-size: 16px;
+  text-transform: uppercase;
   font-weight: 700;
   line-height: 1.12;
   letter-spacing: -0.02em;
-  text-align: left;
-
   color: #4f2ee8;
 }

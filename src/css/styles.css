@@ -1,12 +1,22 @@
-/**
-  |============================
-  | include css partials with
-  | default @import url()
-  |============================
+/* MAIN SATTING
+
+FONTS: DM Sans 400,500,700 + italic
+
+COLOR : #111111 Black , Title and Headers
+ #202024 Grey , description main text color
+ #4F2EE8 Violet , HOVER - white variable
+ #EAC645 Yellow , Hover - Dark variable
+ #FFFFFF White ,
+
 */
-@import url('./reset.css');
-@import url('./vite-promo.css');
-@import url('./header.css');
+
+@import url(./reset.css);
+@import url(./header.css);
+@import url(./categories.css);
+@import url(./home.css);
+@import url(./support.css);
+@import url(./shoppingList.css);
+@import url(./loader.css);
 
 :root {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
@@ -23,6 +33,7 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
+
 
 .visually-hidden {
   position: absolute;
@@ -41,6 +52,7 @@
   text-decoration: none;
   padding: 0;
   margin: 0;
+
 }
 
 .list {
@@ -67,6 +79,7 @@ section {
     padding-bottom: 100px;
   }
 }
+
 
 @media (min-width: 1280px) {
   .container {
