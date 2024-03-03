@@ -1,4 +1,5 @@
 import './js/support';
+import 'animate.css';
 /*LIBRARIES
 1. Axios
 (docs) - https://www.npmjs.com/package/axios?activeTab=readme

@@ -19,6 +19,7 @@
 
   #scrollableList {
     max-height: 228px;
+    overflow-x: hidden;
     overflow-y: auto;
   }
 }
@@ -44,6 +45,7 @@
 
   #scrollableList {
     max-height: 413px;
+    overflow-x: hidden;
     overflow-y: auto;
   }
 }

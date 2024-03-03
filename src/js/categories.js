@@ -3,6 +3,8 @@ import { LoadHomeCategory } from '/js/homeCatRender.js';
 import { loadHomeBooks } from './homeRender';
 import { baseHomeTitle } from './homeCatRender';
 
+
+
 refs.categoriesRef.addEventListener('click', categoriesSelected);
 // console.log(refs.categoriesRef);
 
