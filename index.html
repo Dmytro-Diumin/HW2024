@@ -2,111 +2,187 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/HW2024/favicon.svg" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>HW2024</title>
-    
+    <title><Kilobyte-2024></Kilobyte-2024></title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
     
     <script type="module" crossorigin src="/HW2024/commonHelpers.js"></script>
-    <link rel="stylesheet" href="/HW2024/assets/index-5e9b41db.css">
+    <link rel="modulepreload" crossorigin href="/HW2024/assets/vendor-8cce9181.js">
+    <link rel="stylesheet" href="/HW2024/assets/vendor-e5212ee8.css">
+    <link rel="stylesheet" href="/HW2024/assets/index-10354ae1.css">
   </head>
   <body>
+    <span class="loader"></span>
+
+    <header id="header" class="header">
+    <div class="container header-container">
+        <div class="header-logo">
+            <a href="./index.html" class="header-link">
+                <svg class="header-logo-icon" id="icon-logotip" width="24" height="24">
+                    <use href="/HW2024/assets/noptimizesprite-267f7d9f.svg#icon-logotip"></use>
+                </svg>
+            </a>
+        </div>
+        <nav class="header-nav">
+            <a class="header-nav-home" href="./index.html">HOME</a>
+            <a class="header-nav-shop" href="./partials/shopinglist.html">SHOPPING LIST
+                <svg class="header-nav-icon" id="icon-uil_cart" width="20" height="20">
+                    <use href="/HW2024/assets/noptimizesprite-267f7d9f.svg#icon-uil_cart"></use>
+                </svg>
+            </a>
+        </nav>
+        <div class="header-block">
+            <div class="header-switcher">
+                <input type="checkbox" id="theme-switch" class="header-switch" />
+                <label for="theme-switch" class="header-switch-label"></label>
+            </div>
+            <div class="header-burger">
+                <a href="./partials/modalburger.html" class="header-link-burger">
+                    <svg class="btn-burger-icon" id="icon-align-left" width="28" height="28">
+                        <use href="/HW2024/assets/noptimizesprite-267f7d9f.svg#icon-align-left"></use>
+                    </svg>
+                </a>
+            </div>
+            <div class="header-btn">
+                <button class="header-btn">Sing up
+                    <svg class="header-btn-icon" id="icon-arrow-narrow-right" width="20" height="20">
+                        <use href="icon-arrow-narrow-right"></use>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+</header>
     <section class="section" id="categories">
-      <div class="categories__block container">
-        <ul class="categories__list" id="scrollableList">
-          <li class="categories__item" data-original-text="All categories">
-            All categories
-          </li>
-          <li
-            class="categories__item"
-            data-original-text="Graphic Books and Manga"
-          >
-            Graphic Books and Manga
-          </li>
-          <li
-            class="categories__item"
-            data-original-text="Paperback Nonfiction"
-          >
-            Paperback Nonfiction
-          </li>
-          <li
-            class="categories__item"
-            data-original-text="Middle Grade Paperback Monthly"
-          >
-            Middle Grade Paperback Monthly
-          </li>
-          <li
-            class="categories__item"
-            data-original-text="Advice How-To and Miscellaneous"
-          >
-            Advice How-To and Miscellaneous
-          </li>
-          <li
-            class="categories__item"
-            data-original-text="Combined Print and E-Book Nonfiction"
-          >
-            Combined Print and E-Book Nonfiction
-          </li>
-          <li class="categories__item" data-original-text="Series Books">
-            Series Books
-          </li>
-          <li class="categories__item" data-original-text="Picture Books">
-            Picture Books
-          </li>
-          <li
-            class="categories__item"
-            data-original-text="Children's Middle Grade Hardcover"
-          >
-            Children's Middle Grade Hardcover
-          </li>
-          <li class="categories__item" data-original-text="Audio Nonfiction">
-            Audio Nonfiction
-          </li>
-          <li
-            class="categories__item"
-            data-original-text="Young Adult Paperback Monthly"
-          >
-            Young Adult Paperback Monthly
-          </li>
-          <li
-            class="categories__item"
-            data-original-text="Hardcover Nonfiction"
-          >
-            Hardcover Nonfiction
-          </li>
-          <li
-            class="categories__item"
-            data-original-text="Young Adult Hardcover"
-          >
-            Young Adult Hardcover
-          </li>
-          <li
-            class="categories__item"
-            data-original-text="Trade Fiction Paperback"
-          >
-            Trade Fiction Paperback
-          </li>
-          <li class="categories__item" data-original-text="Hardcover Fiction">
-            Hardcover Fiction
-          </li>
-          <li class="categories__item" data-original-text="Audio Fiction">
-            Audio Fiction
-          </li>
-          <li
-            class="categories__item"
-            data-original-text="Combined Print and E-Book Fiction"
-          >
-            Combined Print and E-Book Fiction
-          </li>
-          <li class="categories__item" data-original-text="Mass Market Monthly">
-            Mass Market Monthly
-          </li>
-          <li class="categories__item" data-original-text="Business Books">
-            Business Books
-          </li>
-        </ul>
-      </div>
-    </section>
+  <div class="categories__block container">
+    <ul class="categories__list" id="scrollableList">
+      <li class="categories__item" data-category="all categories">
+        All categories
+      </li>
+      <li class="categories__item" data-category="Graphic Books and Manga">
+        Graphic Books and Manga
+      </li>
+      <li class="categories__item" data-category="Paperback Nonfiction">
+        Paperback Nonfiction
+      </li>
+      <li
+        class="categories__item"
+        data-category="Middle Grade Paperback Monthly"
+      >
+        Middle Grade Paperback Monthly
+      </li>
+      <li
+        class="categories__item"
+        data-category="Advice How-To and Miscellaneous"
+      >
+        Advice How-To and Miscellaneous
+      </li>
+      <li
+        class="categories__item"
+        data-category="Combined Print and E-Book Nonfiction"
+      >
+        Combined Print and E-Book Nonfiction
+      </li>
+      <li class="categories__item" data-category="Series Books">
+        Series Books
+      </li>
+      <li class="categories__item" data-category="Picture Books">
+        Picture Books
+      </li>
+      <li
+        class="categories__item"
+        data-category="Children's Middle Grade Hardcover"
+      >
+        Children's Middle Grade Hardcover
+      </li>
+      <li class="categories__item" data-category="Audio Nonfiction">
+        Audio Nonfiction
+      </li>
+      <li
+        class="categories__item"
+        data-category="Young Adult Paperback Monthly"
+      >
+        Young Adult Paperback Monthly
+      </li>
+      <li class="categories__item" data-category="Hardcover Nonfiction">
+        Hardcover Nonfiction
+      </li>
+      <li class="categories__item" data-category="Young Adult Hardcover">
+        Young Adult Hardcover
+      </li>
+      <li class="categories__item" data-category="Trade Fiction Paperback">
+        Trade Fiction Paperback
+      </li>
+      <li class="categories__item" data-category="Hardcover Fiction">
+        Hardcover Fiction
+      </li>
+      <li class="categories__item" data-category="Audio Fiction">
+        Audio Fiction
+      </li>
+      <li
+        class="categories__item"
+        data-category="Combined Print and E-Book Fiction"
+      >
+        Combined Print and E-Book Fiction
+      </li>
+      <li class="categories__item" data-category="Mass Market Monthly">
+        Mass Market Monthly
+      </li>
+      <li class="categories__item" data-category="Business Books">
+        Business Books
+      </li>
+    </ul>
+  </div>
+</section>
+
+    <!-- <div class="support">
+  <div class="support-container ">
+    <div class="support-div-title">
+      <h3 class="support-title">Support Ukraine</h3>
+      <svg class="support-svg-title">
+        <use href="./img/noptimizesprite.svg#icon-trizub"></use>
+      </svg>
+    </div>
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper js-support-list"></div>
+      <div class="swiper-pagination"></div>
+    </div>
+    <button class="support-btn swiper-button-next" aria-label="Scroll down">
+      <svg class="support-btn-svg">
+        <use href="./img/symbol-defs.svg#icon-fi-rr-small-down"></use>
+      </svg>
+    </button>
+  </div>
+</div> -->
+
+    <section class="home-wrapper container">
+        <h2 class="main-category-title">Best Sellers <span class="main-category-title-span">Books</span></h2>
+        <div class="categories-wrapper">
+            <ul class="home-categories-list"></ul>
+        </div>
+</section>
+
+    <h2 class="main-category-title title-shopping">Shopping <span class="main-category-title-span">List</span></h2>
+  <div class="box-bookslist"></div>
+  <p class="book-list">This page is empty, add some books and proceed to order.</p>
+  <img 
+  class="bookslist" 
+  src="../img/bookslist.png" 
+  alt="empty cart"
+  width="300" 
+  height="300" 
+  />
+</div>
 
     
   </body>
