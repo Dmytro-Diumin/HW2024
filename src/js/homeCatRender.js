@@ -2,7 +2,7 @@ import { fetchSelectedCategory } from './fetchAPI';
 import { seeMoreBtn, categoriesList, loadHomeBooks } from './homeRender';
 import iziToast from 'izitoast';
 let listForRender;
-export const sectionTitle = document.querySelector('.main-category-title');
+const sectionTitle = document.querySelector('.main-category-title');
 
 export function LoadHomeCategory(data) {
   const categoryTitle = data;
@@ -59,6 +59,18 @@ function renderCategoryBooks(category, listName) {
     `<div class="all-cat-btn-wrap"><button class="all-cat-btn">All Categories</button></div>`
   );
   let allCatBtn = document.querySelector('.all-cat-btn');
+  allCatBtn.addEventListener('click', function () {
+    const currentSelected = document.querySelector(
+      '.categories__item.selected'
+    );
+    if (currentSelected) {
+      currentSelected.classList.remove('selected');
+    }
+    const allCategories = document.querySelector(
+      '[data-category="all categories"]'
+    );
+    allCategories.classList.add('selected');
+  });
   listenAllCatBtn(allCatBtn);
   const titleArr = listName.split(' ');
   if (titleArr.length > 3) {
@@ -81,7 +93,7 @@ function renderCategoryBooks(category, listName) {
     sectionTitle.innerHTML = listName;
   }
 }
-function listenAllCatBtn(allCatBtn) {
+export function listenAllCatBtn(allCatBtn) {
   allCatBtn.addEventListener('click', () => {
     loadHomeBooks();
     baseHomeTitle();

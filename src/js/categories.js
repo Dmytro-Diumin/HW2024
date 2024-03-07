@@ -1,23 +1,23 @@
-import { refs } from '/js/refs.js';
+import { refs } from './refs';
 import { LoadHomeCategory } from '/js/homeCatRender.js';
 import { loadHomeBooks } from './homeRender';
 import { baseHomeTitle } from './homeCatRender';
 
-
-
 refs.categoriesRef.addEventListener('click', categoriesSelected);
-// console.log(refs.categoriesRef);
 
 export function categoriesSelected(event) {
+  event.preventDefault();
+
+  const clickedLink = event.target.closest('a');
+
   if (
-    !event ||
-    !event.target ||
-    !event.target.classList.contains('categories__item')
+    !clickedLink ||
+    !clickedLink.parentElement.classList.contains('categories__item')
   ) {
     return;
   }
 
-  const selectedCategory = event.target;
+  const selectedCategory = clickedLink.parentElement;
 
   if (selectedCategory.dataset.category === 'all categories') {
     const allCategories = Array.from(selectedCategory.parentElement.children);

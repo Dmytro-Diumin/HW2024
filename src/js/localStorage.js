@@ -6,9 +6,11 @@ export function onAddThemeLocalStorage() {
   if (refs.themeCheckbox.checked) {
     localStorage.setItem('theme', 'dark');
     // Сюди треба навішати класи для темної теми або функцію яка це робитиме
+     document.body.classList.add('dark-theme');  
   } else {
     localStorage.removeItem('theme');
     // Тут треба видалити класи темної теми або створити функцію яка це робитиме
+     document.body.classList.remove('dark-theme');
   }
 }
 
@@ -35,7 +37,7 @@ function checkLocalBook(event) {
     listBtnRef.textContent = 'remove from the shopping list';
   }
 }
-function removeFromLocalStorage(event) {
+export function removeFromLocalStorage(event) {
   const notesArray = getAllBooks();
   const id = notesArray.findIndex(elem => {
     return elem._id === event.target.dataset.id;

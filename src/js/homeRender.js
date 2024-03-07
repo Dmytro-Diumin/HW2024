@@ -82,6 +82,22 @@ function renderHomeCategories(categories) {
     .join('');
   categoriesList.insertAdjacentHTML('beforeend', markupCategories);
   seeMoreBtn = document.querySelectorAll('.see-more');
+  seeMoreBtn.forEach(button => {
+    button.addEventListener('click', () => {
+      const category = button.dataset.js;
+      const categoryElement = document.querySelector(
+        `.categories__item[data-category="${category}"]`
+      );
+      if (categoryElement) {
+        document
+          .querySelectorAll('.categories__item.selected')
+          .forEach(selectedCategory => {
+            selectedCategory.classList.remove('selected');
+          });
+        categoryElement.classList.add('selected');
+      }
+    });
+  });
   seeMoreListener();
 }
 function renderHomeBooks(books) {

@@ -1,64 +1,87 @@
-// export const bookListRef = document.querySelector('.home-categories-list');
-// import { fetchBookDetails } from './fetchAPI';
+import icon from '/img/noptimizesprite.svg';
 
-// let modalBtnCloseRef;
+export const bookListRef = document.querySelector('.home-categories-list');
+const modalPlaceRef = document.querySelector('#modal');
+import { fetchBookDetails } from './fetchAPI';
+import { addToLocalStorage } from './localStorage.js';
+import { getAllBooks } from './localStorage.js';
+import amazonLogo from '../img/amazon.png';
+import appleLogo from '../img/book.png';
 
-// export async function onBookClick(event) {
-//   const clickedElement = event.target;
-//   const closestLi = clickedElement.closest('li');
+let modalBtnCloseRef;
 
-//   if (!closestLi.hasAttribute('id') || closestLi.id === null) return;
-//   document.querySelector('body').classList.add('no-scroll');
+export async function onBookClick(event) {
+  const clickedElement = event.target;
+  const closestLi = clickedElement.closest('li');
 
-//   const data = (await fetchBookDetails(closestLi.id)).data;
-//   bookListRef.insertAdjacentHTML('afterend', renderModalWindow(data));
+  if (!closestLi.hasAttribute('id') || closestLi.id === null) return;
+  document.querySelector('body').classList.add('no-scroll');
 
-//   const backdropRef = document.querySelector('#modal-open');
-//   modalBtnCloseRef = document.querySelector('#modal-btn-close');
+  const oneBookData = (await fetchBookDetails(closestLi.id)).data;
 
-//   backdropRef.addEventListener('click', closeModalWindow);
-//   modalBtnCloseRef.addEventListener('click', closeModalWindow);
-//   document.addEventListener('keydown', closeModalWindow);
-// }
+  modalPlaceRef.innerHTML = renderModalWindow(oneBookData);
 
-// function renderModalWindow(book) {
-//   return ` <div class="backdrop is-open" id="modal-open">
-//      <div class="modal-container">
-//     <div class="modal">
-//     <button type="button" class="modal-close-btn" id="modal-btn-close">
-//           <svg class="modal-btn-icon" width="16" height="16" id="modal-btn-close">
-//             <use href="./img/symbol-defs.svg#icon-x-close"></use>
-//           </svg>
-//         </button>
-//                 <img class="book-img" src="${book.book_image}" alt="${book.title}">
-//                 <p class="book-title">${book.title}</p>
-//                 <p class="book-author">${book.author}</p>
-//                 <p class="book-alt-text">${book.description}</p>
-//                 <div class="img-wrap">
-//                 <a href="${book.amazon_product_url}" target="blank" >
-//                 <img
-//                   src="./img/amazon.png"
-//                   alt="amazon"
-//                   class="amazon-logo"
-//                   width="62"
-//                   height="19"
-//                 />
-//                 </a>
-//                 <a href="${book.buy_links[1].url}" target="_blank">
-//                 <img
-//                   src="./img/book.png"
-//                   alt="apple-book"
-//                   class="apple-logo"
-//                   width="33"
-//                   height="32"
-//                 />
-//                 </div>
-//                 </a>
-//                 <button type="button" class="book-btn">add to shopping list</button>
+  const listBtnRef = document.querySelector('.book-btn');
+  const backdropRef = document.querySelector('#modal-open');
+  modalBtnCloseRef = document.querySelector('#modal-btn-close');
 
-//   </div>
-//   </div> `;
-// }
+  backdropRef.addEventListener('click', closeModalWindow);
+  modalBtnCloseRef.addEventListener('click', closeModalWindow);
+  document.addEventListener('keydown', closeModalWindow);
+  listBtnRef.addEventListener('click', event =>
+    addToLocalStorage(event, oneBookData)
+  );
+}
+
+function renderModalWindow(book) {
+  var buttonBasket;
+  if (
+    getAllBooks().find(b => {
+      return b._id === book._id;
+    })
+  ) {
+    buttonBasket = 'remove from the shopping list';
+  } else buttonBasket = 'add to shopping list';
+  return ` <div class="backdrop is-open" id="modal-open">
+    <div class="modal-container">
+    <div class="modal">
+    <button type="button" class="modal-close-btn" id="modal-btn-close">
+          <svg class="modal-btn-icon" width="16" height="16">
+            <use href="${icon}#icon-x-close"></use>
+          </svg>
+        </button>
+        <div class="book-wrap">
+                <img class="book-img" src="${book.book_image}" alt="${book.title}">
+                <div class="book-info-wrap">
+                <p class="book-title">${book.title}</p>
+                <p class="book-author">${book.author}</p>
+                <p class="book-alt-text">${book.description}</p>
+                <div class="img-wrap ">
+                <a href="${book.amazon_product_url}" target="blank" >
+                <img
+                  src="${amazonLogo}"
+                  alt="amazon"
+                  class="amazon-logo"
+                  width="62"
+                  height="19"
+                />
+                </a>
+                <a href="${book.buy_links[1].url}" target="_blank">
+                <img
+                  src="${appleLogo}"
+                  alt="apple-book"
+                  class="apple-logo"
+                  width="33"
+                  height="32"
+                />
+                </div>
+                </div>
+                </a>
+                </div>
+                  <button type="button" class="book-btn" data-id = "${book._id}">${buttonBasket}</button>       
+  </div>
+  </div> `;
+}
 
 // function closeModalWindow(event) {
 //   const backdropRef = document.querySelector('#modal-open');
@@ -75,8 +98,24 @@
 //   modalBtnCloseRef.removeEventListener('click', closeModalWindow);
 //   document.removeEventListener('keydown', closeModalWindow);
 // }
-// to main.js
-//import { onBookClick, bookListRef } from './js/modalWindowFunctions.js';
-//bookListRef.addEventListener('click', onBookClick);
-// to styles.css
-//@import url(./modalWindow.css);
+
+function closeModalWindow(event) {
+  const backdropRef = document.querySelector('#modal-open');
+  const modalBtnCloseRef = document.querySelector('#modal-btn-close');
+
+  if (
+    event.target !== modalBtnCloseRef &&
+    !modalBtnCloseRef.contains(event.target) &&
+    event.target.id !== 'modal-open' &&
+    event.key !== 'Escape'
+  ) {
+    return;
+  }
+
+  backdropRef.classList.remove('is-open');
+  document.querySelector('body').classList.remove('no-scroll');
+
+  backdropRef.removeEventListener('click', closeModalWindow);
+  modalBtnCloseRef.removeEventListener('click', closeModalWindow);
+  document.removeEventListener('keydown', closeModalWindow);
+} //переробив функцію // на модалку
