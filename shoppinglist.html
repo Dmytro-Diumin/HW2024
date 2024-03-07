@@ -2,7 +2,6 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/HW2024/assets/Logotype-0d514fde.svg" />
     <title>Kilobyte</title>
@@ -17,11 +16,13 @@
       rel="stylesheet"
     />
     
-    <script type="module" crossorigin src="/HW2024/commonHelpers.js"></script>
+    
+    <script type="module" crossorigin src="/HW2024/commonHelpers2.js"></script>
     <link rel="modulepreload" crossorigin href="/HW2024/assets/vendor-8fb44cc3.js">
     <link rel="modulepreload" crossorigin href="/HW2024/assets/localStorage-78d2f934.js">
-    <link rel="stylesheet" href="/HW2024/assets/vendor-05dafefa.css">
     <link rel="stylesheet" href="/HW2024/assets/localStorage-e8430bb2.css">
+    <link rel="stylesheet" href="/HW2024/assets/vendor-05dafefa.css">
+    <link rel="stylesheet" href="/HW2024/assets/shoppinglist-419e6c99.css">
   </head>
   <body>
     <header id="header" class="header">
@@ -90,6 +91,59 @@
   </div>
 </header>
 
+    <section class="shoppinglist-section">
+      <div class="container">
+        <div class="wrapper-shop-list">
+          <section class="section-support">
+<div class="support">
+  <div class="support-container ">
+    <div class="support-div-title">
+      <h3 class="support-title">Support Ukraine</h3>
+      <svg class="support-svg-title">
+        <use href="/HW2024/assets/noptimizesprite-adbf2bd6.svg#icon-trizub"></use>
+      </svg>
+    </div>
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper js-support-list"></div>
+      <div class="swiper-pagination"></div>
+    </div>
+    <button class="support-btn swiper-button-next" aria-label="Scroll down">
+      <svg class="support-btn-svg">
+        <use href="/HW2024/assets/symbol-defs-63559100.svg#icon-fi-rr-small-down"></use>
+      </svg>
+    </button>
+  </div>
+</div>
+</section>
+
+          <div class="warapper-shoplist-decor">
+            <h2 class="main-category-title title-shopping">
+              Shopping <span class="main-category-title-span">List</span>
+            </h2>
+            <div class="box-bookslist emptyShoppingList">
+              <p class="book-list">
+                This page is empty, add some books and proceed to order.
+              </p>
+              <img
+                class="bookslist"
+                src="/HW2024/assets/bookslist-229fd7ef.png"
+                alt="empty cart"
+                width="300"
+                height="300"
+              />
+            </div>
+            <div class="shopping-list-wrap">
+              <ul class="shopping-list" id="shopping-list"></ul>
+            </div>
+            <section>
+  <div id="pagination1" class="tui-pagination"></div>
+  
+</section>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="backdrop-burger">
   <div class="burg-cont">
     <nav class="modal-navigation">
@@ -134,134 +188,7 @@
         </ul>
       </nav> -->
 
-    <div class="container">
-    <div class="main-wrapper ">
-      <div class="wrapper-categories">
-    <section class="section" id="categories">
-  <div class="categories__block">
-    <ul class="categories__list" id="scrollableList">
-      <li
-        class="categories__item selected noted"
-        data-category="all categories"
-      >
-        <a href="">All categories</a>
-      </li>
-      <li class="categories__item" data-category="Graphic Books and Manga">
-        <a href="">Graphic Books and Manga</a>
-      </li>
-      <li class="categories__item" data-category="Paperback Nonfiction">
-        <a href="">Paperback Nonfiction</a>
-      </li>
-      <li
-        class="categories__item"
-        data-category="Middle Grade Paperback Monthly"
-      >
-        <a href="">Middle Grade Paperback Monthly</a>
-      </li>
-      <li
-        class="categories__item"
-        data-category="Advice How-To and Miscellaneous"
-      >
-        <a href="">Advice How-To and Miscellaneous</a>
-      </li>
-      <li
-        class="categories__item"
-        data-category="Combined Print and E-Book Nonfiction"
-      >
-        <a href="">Combined Print and E-Book Nonfiction</a>
-      </li>
-      <li class="categories__item" data-category="Series Books">
-        <a href="">Series Books</a>
-      </li>
-      <li class="categories__item" data-category="Picture Books">
-        <a href="">Picture Books</a>
-      </li>
-      <li
-        class="categories__item"
-        data-category="Children's Middle Grade Hardcover"
-      >
-        <a href="">Children's Middle Grade Hardcover</a>
-      </li>
-      <li class="categories__item" data-category="Audio Nonfiction">
-        <a href="">Audio Nonfiction</a>
-      </li>
-      <li
-        class="categories__item"
-        data-category="Young Adult Paperback Monthly"
-      >
-        <a href="">Young Adult Paperback Monthly</a>
-      </li>
-      <li class="categories__item" data-category="Hardcover Nonfiction">
-        <a href="">Hardcover Nonfiction</a>
-      </li>
-      <li class="categories__item" data-category="Young Adult Hardcover">
-        <a href="">Young Adult Hardcover</a>
-      </li>
-      <li class="categories__item" data-category="Trade Fiction Paperback">
-        <a href="">Trade Fiction Paperback</a>
-      </li>
-      <li class="categories__item" data-category="Hardcover Fiction">
-        <a href="">Hardcover Fiction</a>
-      </li>
-      <li class="categories__item" data-category="Audio Fiction">
-        <a href="">Audio Fiction</a>
-      </li>
-      <li
-        class="categories__item"
-        data-category="Combined Print and E-Book Fiction"
-      >
-        <a href="">Combined Print and E-Book Fiction</a>
-      </li>
-      <li class="categories__item" data-category="Mass Market Monthly">
-        <a href="">Mass Market Monthly</a>
-      </li>
-      <li class="categories__item" data-category="Business Books">
-        <a href="">Business Books</a>
-      </li>
-    </ul>
-  </div>
-</section>
-
-    <section class="section-support">
-<div class="support">
-  <div class="support-container ">
-    <div class="support-div-title">
-      <h3 class="support-title">Support Ukraine</h3>
-      <svg class="support-svg-title">
-        <use href="/HW2024/assets/noptimizesprite-adbf2bd6.svg#icon-trizub"></use>
-      </svg>
-    </div>
-    <div class="swiper mySwiper">
-      <div class="swiper-wrapper js-support-list"></div>
-      <div class="swiper-pagination"></div>
-    </div>
-    <button class="support-btn swiper-button-next" aria-label="Scroll down">
-      <svg class="support-btn-svg">
-        <use href="/HW2024/assets/symbol-defs-63559100.svg#icon-fi-rr-small-down"></use>
-      </svg>
-    </button>
-  </div>
-</div>
-</section>
-
-    </div>
-    <section class="home-wrapper container">
-        <h2 class="main-category-title">Best Sellers <span class="main-category-title-span">Books</span></h2>
-        <div class="categories-wrapper">
-            <ul class="home-categories-list"></ul>
-        </div>
-</section>
-
-  </div>
-    <!-- ENOENT: no such file or directory, open '/home/runner/work/HW2024/HW2024/src/partials/shopinglist.html' -->
-
-    <span class="loader"></span>
-
-    <span id="modal"></span>
-
-    <button type="button" style="display: none;" class="up-button">Up</button>
-   
+    <!-- <script type="module" src="./main.js"></script> -->
     
-  </div>
   </body>
 </html>
